@@ -1,2 +1,2 @@
-# knowledge-particle-size
-A demo for changeable KPS for article reading
+# Knoledge Particle Density (KPD)
+A demo for changeable KPD for article reading.

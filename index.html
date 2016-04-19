@@ -2,19 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>KPS</title>
+  <title>KPD</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+  <style type="text/css">
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.inverted.menu {
+    border-radius: 0;
+  }
+  h1.ui.header {
+    margin-bottom: 2em;
+  }
+  .ui p {
+    line-height: 2em;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .ui.container {
+    font-size: 1.6em;
+  }
+  .main.container {
+    margin-top: 3em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  </style>
 </head>
-<body ng-app="kps">
+<body ng-app="kpd">
+  <div class="ui inverted menu">
+    <div class="ui container">
+      <a ui-sref="about" class="header item">
+        <i class="icon book"></i>
+        About KPD
+      </a>
+      <a ui-sref="samples" class="item">Samples</a>
+      <a ui-sref="contact" class="item">Contact</a>
+    </div>
+  </div>
+  <div class="ui main text container">
+    
+    <div ui-view></div>
+  </div>
 
-<a ui-sref="about">About</a>
-<a ui-sref="samples">Samples</a>
-<a ui-sref="contact">Contact</a>
-<div ui-view></div>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 
 <script>
-  angular.module('kps', ['ui.router'])
+  angular.module('kpd', ['ui.router'])
     .config(function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise("/about")
       $stateProvider
