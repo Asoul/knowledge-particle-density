@@ -70,8 +70,8 @@
         .state('samples', {
           url: "/samples",
           templateUrl: "templates/samples.html",
-          controller: function($scope) {
-            var kps = 5
+          controller: function($scope, $timeout) {
+            var kps = 3
             $('.ui.secondary.menu > .item').on('click', function(event) {
               $('.ui.secondary.menu > .item').removeClass('active')
               $(this).addClass('active')
@@ -97,8 +97,10 @@
               $('#kps-text').attr('data-text', kps)
               updateText()
             }
-            initActiveItem()
-            $scope.changeKPS(0)
+            $timeout(function(){
+              initActiveItem()
+              $scope.changeKPS(0)  
+            })
           }
         })
         .state('contact', {
