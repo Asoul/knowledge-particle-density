@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KPS</title>
+</head>
+<body ng-app="kps">
+
+<a ui-sref="about">About</a>
+<a ui-sref="samples">Samples</a>
+<a ui-sref="contact">Contact</a>
+<div ui-view></div>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
+<script>
+  angular.module('kps', ['ui.router'])
+    .config(function($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise("/about")
+      $stateProvider
+        .state('about', {
+          url: "/about",
+          templateUrl: "templates/about.html"
+        })
+        .state('samples', {
+          url: "/samples",
+          templateUrl: "templates/samples.html",
+          controller: function($scope) {
+            
+          }
+        })
+        .state('contact', {
+          url: "/contact",
+          templateUrl: "templates/contact.html"
+        })
+        .state('samples.sample1', {
+          url: "/sample1",
+          templateUrl: "templates/samples/sample1.html"
+        })
+        .state('samples.sample2', {
+          url: "/sample2",
+          templateUrl: "templates/samples/sample2.html"
+        })
+    })
+</script>
+</body>
+</html>
