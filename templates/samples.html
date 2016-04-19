@@ -7,12 +7,11 @@
   </div>
   <div class="four wide column">
     <div class="ui buttons right aligned">
-      <button class="ui olive button">▼</button>
-      <div class="or" data-text="3"></div>
-      <button class="ui green button">▲</button>
+      <button class="ui olive button" ng-click="changeKPS(-1)">▼</button>
+      <div class="or" id="kps-text"></div>
+      <button class="ui green button" ng-click="changeKPS(1)">▲</button>
     </div>
   </div>
 </div>
-
 
 <div ui-view></div>

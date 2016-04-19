@@ -71,10 +71,18 @@
           url: "/samples",
           templateUrl: "templates/samples.html",
           controller: function($scope) {
+            $scope.kps = 3
             $('.ui.secondary.menu > .item').on('click', function(event) {
               $('.ui.secondary.menu > .item').removeClass('active')
               $(this).addClass('active')
             })
+            $scope.changeKPS = function(delta) {
+              $scope.kps += delta
+              $scope.kps = Math.min($scope.kps, 5)
+              $scope.kps = Math.max($scope.kps, 1)
+              $('#kps-text').attr('data-text', $scope.kps)
+            }
+            $scope.changeKPS(0)
           }
         })
         .state('contact', {
