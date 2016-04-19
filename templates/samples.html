@@ -1,6 +1,18 @@
-<div class="ui secondary menu">
-  <a ui-sref="samples.sample1" class="active item">範例一</a>
-  <a ui-sref="samples.sample2" class="item">範例二</a>
+<div class="ui grid">
+  <div class="twelve wide column">
+    <div class="ui secondary menu">
+      <a ui-sref="samples.sample1" class="active item">範例一</a>
+      <a ui-sref="samples.sample2" class="item">範例二</a>
+    </div>
+  </div>
+  <div class="four wide column">
+    <div class="ui buttons right aligned">
+      <button class="ui olive button">▼</button>
+      <div class="or" data-text="3"></div>
+      <button class="ui green button">▲</button>
+    </div>
+  </div>
 </div>
+
 
 <div ui-view></div>
