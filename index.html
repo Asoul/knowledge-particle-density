@@ -71,17 +71,33 @@
           url: "/samples",
           templateUrl: "templates/samples.html",
           controller: function($scope) {
-            $scope.kps = 3
+            var kps = 5
             $('.ui.secondary.menu > .item').on('click', function(event) {
               $('.ui.secondary.menu > .item').removeClass('active')
               $(this).addClass('active')
             })
-            $scope.changeKPS = function(delta) {
-              $scope.kps += delta
-              $scope.kps = Math.min($scope.kps, 5)
-              $scope.kps = Math.max($scope.kps, 1)
-              $('#kps-text').attr('data-text', $scope.kps)
+            initActiveItem = function() {
+              var index = window.location.hash.slice(-1)
+              var element = $('.ui.secondary.menu > .item')[parseInt(index) - 1]
+              $(element).addClass('active')
             }
+            updateText = function() {
+              $('span').each(function(index, element) {
+                if ($(element).attr('data-level') <= kps) {
+                  $(element).show()
+                } else {
+                  $(element).hide()
+                }
+              })
+            }
+            $scope.changeKPS = function(delta) {
+              kps += delta
+              kps = Math.min(kps, 5)
+              kps = Math.max(kps, 1)
+              $('#kps-text').attr('data-text', kps)
+              updateText()
+            }
+            initActiveItem()
             $scope.changeKPS(0)
           }
         })
