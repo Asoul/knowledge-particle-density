@@ -87,19 +87,19 @@
           url: "/samples",
           templateUrl: "templates/samples.html",
           controller: function($scope, $timeout) {
-            var kps = 3
+            var kpd = 3
             $('.ui.secondary.menu > .item').on('click', function(event) {
               $('.ui.secondary.menu > .item').removeClass('active')
               $(this).addClass('active')
             })
-            initActiveItem = function() {
+            var initActiveItem = function() {
               var index = window.location.hash.slice(-1)
               var element = $('.ui.secondary.menu > .item')[parseInt(index) - 1]
               $(element).addClass('active')
             }
-            updateText = function() {
+            var updateText = function() {
               $('span').each(function(index, element) {
-                if ($(element).attr('data-level') <= kps) {
+                if ($(element).attr('data-level') <= kpd) {
                   $(element).show()
                 } else {
                   $(element).hide()
@@ -107,15 +107,17 @@
               })
             }
             $scope.changeKPD = function(delta) {
-              kps += delta
-              kps = Math.min(kps, 5)
-              kps = Math.max(kps, 1)
-              $('#kps-text').attr('data-text', kps)
+              kpd += delta
+              kpd = Math.min(kpd, 5)
+              kpd = Math.max(kpd, 1)
+              $('#kpd-text').attr('data-text', kpd)
               updateText()
             }
+            $scope.$on('$viewContentLoaded', function() {
+              $scope.changeKPD(0)
+            })
             $timeout(function(){
               initActiveItem()
-              $scope.changeKPD(0)  
             })
           }
         })
