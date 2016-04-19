@@ -2,7 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>KPD</title>
+  <title>Knowledge Particle Density</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <!-- Facebook Settings -->
+  <meta property="og:type"   content="website" />
+  <meta property="og:url"    content="asoul.github.io/knowledge-particle-density" />
+  <meta property="og:title"  content="Knowledge Particle Density" />
+  <meta property="og:description"  content="I demo website for Knowledge Particle Density." />
+  <meta property="og:image"  content="http://asoul.github.io/knowledge-particle-density/images/favicon.png" />
+
+  <link rel="icon" type="image/png" href="http://asoul.github.io/knowledge-particle-density/images/favicon.png">
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
   <style type="text/css">
@@ -42,10 +54,11 @@
   <div class="ui inverted menu stackable">
     <div class="ui container">
       <a ui-sref="about" class="header item">
-        <i class="icon book"></i>
+        <img src="images/favicon.png" class="logo">
         About KPD
       </a>
       <a ui-sref="samples.sample1" class="item">Samples</a>
+      <a ui-sref="discussion" class="item">Discussion</a>
       <a ui-sref="contact" class="item">Contact</a>
     </div>
   </div>
@@ -102,6 +115,10 @@
               $scope.changeKPS(0)  
             })
           }
+        })
+        .state('discussion', {
+          url: "/discussion",
+          templateUrl: "templates/discussion.html"
         })
         .state('contact', {
           url: "/contact",
