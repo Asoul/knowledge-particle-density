@@ -12,7 +12,8 @@
   .ui.inverted.menu {
     border-radius: 0;
   }
-  h1.ui.header {
+  h1.ui.header.header {
+    margin-top: 2em;
     margin-bottom: 2em;
   }
   .ui p {
@@ -26,6 +27,7 @@
   }
   .main.container {
     margin-top: 3em;
+    margin-bottom: 3em;
   }
   .wireframe {
     margin-top: 2em;
@@ -43,12 +45,11 @@
         <i class="icon book"></i>
         About KPD
       </a>
-      <a ui-sref="samples" class="item">Samples</a>
+      <a ui-sref="samples.sample1" class="item">Samples</a>
       <a ui-sref="contact" class="item">Contact</a>
     </div>
   </div>
   <div class="ui main text container">
-    
     <div ui-view></div>
   </div>
 
@@ -70,7 +71,10 @@
           url: "/samples",
           templateUrl: "templates/samples.html",
           controller: function($scope) {
-            
+            $('.ui.secondary.menu > .item').on('click', function(event) {
+              $('.ui.secondary.menu > .item').removeClass('active')
+              $(this).addClass('active')
+            })
           }
         })
         .state('contact', {
